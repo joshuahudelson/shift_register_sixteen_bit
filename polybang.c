@@ -18,6 +18,10 @@ void polybang_resetCount(t_polybang * x){
   x->current_count = x->init_count;
 }
 
+void polybang_onBangMSG(t_polybang * x){
+  post("Ready to go.");
+}
+
 void * polybang_new(t_floatarg f1, t_floatarg f2){
   t_polybang * x = (t_polybang *)pd_new(polybang_class);
 
@@ -37,4 +41,6 @@ void polybang_setup(void){
                              A_DEFFLOAT,
                              A_DEFFLOAT,
                              0);
+
+  class_addbang(polybang_class, (t_method) polybang_onBangMSG);
 }
