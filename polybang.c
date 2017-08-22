@@ -28,6 +28,21 @@ void polybang_onBangMSG(t_polybang * x){
   outlet_float(x->out_count, 1);
 }
 
+void polybang_onResetMsg(t_polybang * x){
+  polybang_resetCount(x);
+}
+
+void polybang_onListMsg(t_polybang * x, t_symbol * s, t_int argc, t_atom * argv){
+  switch(argc){
+    case 2:
+      polybang_setMods(x, atom_getfloat(argv), atom_getfloat(argv+1));
+      polybang_resetCount(x);
+      break;
+    default:
+      error("two arguments are needed");
+  }
+}
+
 void polybang_onSet_A(t_polybang * x, t_floatarg f){
   polybang_setMods(x, f, x->mod_B);
 }
@@ -77,7 +92,16 @@ void polybang_setup(void){
   class_addbang(polybang_class, (t_method) polybang_onBangMSG);
 
   class_addmethod(polybang_class,
-                   (t_method) polybang_onSet_A,
+                 (t_method) polybang_onResetMsg,
+                 gensym("reset"),
+                 0);
+
+  class_addlist(polybang_class,
+                (t_method) polybang_onListMsg);
+
+  class_addmethod(polybang_class,
+                   (t_method) polybang_onSet_A
+                   ,
                    gensym("ratio_A"),
                    A_DEFFLOAT,
                    0);
