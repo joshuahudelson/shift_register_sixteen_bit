@@ -100,8 +100,7 @@ void polybang_setup(void){
                 (t_method) polybang_onListMsg);
 
   class_addmethod(polybang_class,
-                   (t_method) polybang_onSet_A
-                   ,
+                   (t_method) polybang_onSet_A,
                    gensym("ratio_A"),
                    A_DEFFLOAT,
                    0);
