@@ -1,0 +1,15 @@
+#N canvas 621 265 450 300 10;
+#X obj 183 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 220 33 5 0 0 0 - - -, f 5;
+#X floatatom 261 55 5 0 0 0 - - -, f 5;
+#X obj 185 93 shift_register;
+#X floatatom 185 132 5 0 0 0 - - -, f 5;
+#X floatatom 280 132 5 0 0 0 - - -, f 5;
+#X floatatom 320 56 5 0 0 0 - - -, f 5;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 2;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 6 0 3 3;
