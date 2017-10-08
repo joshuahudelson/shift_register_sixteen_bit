@@ -56,7 +56,7 @@ void shift_register_update_state(t_shift_register * x, t_float f){
   else{
   x->state = temp_int;
   }
-  
+
   outlet_float(x->out_binary, x->state & 1);
   outlet_float(x->out_state, x->state);
 }
