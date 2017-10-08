@@ -1,15 +1,23 @@
-#N canvas 621 265 450 300 10;
-#X obj 183 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X floatatom 220 33 5 0 0 0 - - -, f 5;
-#X floatatom 261 55 5 0 0 0 - - -, f 5;
-#X obj 185 93 shift_register;
-#X floatatom 185 132 5 0 0 0 - - -, f 5;
-#X floatatom 280 132 5 0 0 0 - - -, f 5;
-#X floatatom 320 56 5 0 0 0 - - -, f 5;
-#X connect 0 0 3 0;
-#X connect 1 0 3 1;
-#X connect 2 0 3 2;
-#X connect 3 0 4 0;
-#X connect 3 1 5 0;
-#X connect 6 0 3 3;
+#N canvas 609 281 450 453 10;
+#X obj 157 109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 220 120 5 0 0 0 - - -, f 5;
+#X obj 157 158 shift_register;
+#X floatatom 157 254 5 0 0 0 - - -, f 5;
+#X floatatom 252 207 5 0 0 0 - - -, f 5;
+#X floatatom 252 69 5 0 0 0 - - -, f 5;
+#X msg 188 58 0;
+#X msg 188 37 1;
+#X text 129 22 most significant bit;
+#X text 211 105 num bits;
+#X text 239 54 state (int);
+#X text 234 221 state (int);
+#X text 94 269 least significant bit;
+#X text 146 93 shift;
+#X connect 0 0 2 0;
+#X connect 1 0 2 2;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 5 0 2 3;
+#X connect 6 0 2 1;
+#X connect 7 0 2 1;
