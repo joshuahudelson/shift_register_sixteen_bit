@@ -105,7 +105,7 @@ t_int * shift_register_tilde_perform(t_int * w){
 
 void shift_register_tilde_dsp(t_shift_register_tilde *x, t_signal **sp){
   // 5 or 4?
-  dsp_add(shift_register_tilde_perform, 5, x,
+  dsp_add(shift_register_tilde_perform, 4, x,
           sp[0]->s_vec, sp[1]->s_vec, sp[0]->s_n);
 }
 
