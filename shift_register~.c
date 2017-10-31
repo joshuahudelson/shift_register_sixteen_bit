@@ -88,7 +88,8 @@ t_int * shift_register_tilde_perform(t_int * w){
   t_shift_register_tilde *x   = (t_shift_register_tilde *)(w[1]);
   t_sample *in1               = (t_sample *)(w[2]);
   t_sample *out               = (t_sample *)(w[3]);
-  int n                       = (int)(w[4]);
+  t_sample *out2               = (t_sample *)(w[4]);
+  int n                       = (int)(w[5]);
 
 
   while (n--) {
@@ -98,15 +99,16 @@ t_int * shift_register_tilde_perform(t_int * w){
     shift_register_tilde_put_most_significant_bit(x, *in1++);
 
     *out++ = output;
+    *out2++ = output;
   }
 
-  return (w+5);
+  return (w+6);
 }
 
 void shift_register_tilde_dsp(t_shift_register_tilde *x, t_signal **sp){
   // 5 or 4?
-  dsp_add(shift_register_tilde_perform, 4, x,
-          sp[0]->s_vec, sp[1]->s_vec, sp[0]->s_n);
+  dsp_add(shift_register_tilde_perform, 5, x,
+          sp[0]->s_vec, sp[1]->s_vec, sp[2]->s_vec, sp[0]->s_n);
 }
 
 void * shift_register_tilde_new(t_floatarg f1, t_floatarg f2){
@@ -119,7 +121,9 @@ void * shift_register_tilde_new(t_floatarg f1, t_floatarg f2){
   x->in_input     = inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_signal, &s_signal);
   x->in_num_bits  = inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_float, gensym("in_num_bits2"));
   x->in_state     = inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_float, gensym("in_state2"));
-  x->out_binary   = outlet_new(&x->x_obj, &s_signal);
+  outlet_new(&x->x_obj, &s_signal);
+  outlet_new(&x->x_obj, &s_signal); // Don't need to assign to anything?  Interesting...
+
 //  x->out_state    = outlet_new(&x->x_obj, &s_float);
 
   return (void *) x;

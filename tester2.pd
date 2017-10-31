@@ -1,4 +1,4 @@
-#N canvas 367 126 931 592 10;
+#N canvas 358 138 931 592 10;
 #X obj 168 208 snapshot~;
 #X floatatom 269 92 5 0 0 0 - - -, f 5;
 #X floatatom 235 69 5 0 0 0 - - -, f 5;
@@ -9,7 +9,7 @@
 -1 -1;
 #X obj 168 250 print;
 #X obj 263 175 metro 50;
-#X obj 279 148 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 279 148 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 319 332 5 0 0 0 - - -, f 5;
 #X floatatom 285 309 5 0 0 0 - - -, f 5;
@@ -24,8 +24,12 @@
 #X text 497 147 start streaming audio;
 #X text 492 173 stop streaming audio;
 #X msg 435 63 open /tmp/foo.wav;
-#X obj 166 27 delread~ shftrg 15;
-#X obj 131 485 delwrite~ shftrg 10;
+#X obj 166 28 delread~ shftrg 100;
+#X floatatom 340 30 5 0 0 0 - - -, f 5;
+#X obj 131 484 delwrite~ shftrg 120;
+#X obj 496 319 print~;
+#X obj 508 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 7 0;
 #X connect 1 0 4 3;
 #X connect 2 0 4 2;
@@ -33,6 +37,7 @@
 #X connect 4 0 0 0;
 #X connect 4 0 13 0;
 #X connect 4 0 14 0;
+#X connect 4 1 26 0;
 #X connect 6 0 0 0;
 #X connect 8 0 6 0;
 #X connect 9 0 8 0;
@@ -43,7 +48,7 @@
 #X connect 14 0 5 0;
 #X connect 14 0 5 1;
 #X connect 14 0 15 0;
-#X connect 14 0 24 0;
+#X connect 14 0 25 0;
 #X connect 16 0 17 0;
 #X connect 16 0 19 0;
 #X connect 17 0 15 0;
@@ -51,3 +56,5 @@
 #X connect 19 0 18 0;
 #X connect 22 0 15 0;
 #X connect 23 0 4 0;
+#X connect 24 0 23 0;
+#X connect 27 0 26 0;
