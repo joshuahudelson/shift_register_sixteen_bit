@@ -5,11 +5,10 @@ static t_class *shift_register_sixteen_bit_tilde_class;
 
 typedef struct _shift_register_sixteen_bit_tilde{
   t_object    x_obj;
-  t_int       state;
-  t_inlet     * in_input, * in_state;
+  t_int       state, max_state_value;
+  t_inlet     * in_state;
   t_outlet    *out, *out2, *out3, *out4, *out5, *out6, *out7, *out8, *out9,
               *out10, *out11, *out12, *out13, *out14, *out15, *out16;
-
   t_sample    input_signal_value, f;
 } t_shift_register_sixteen_bit_tilde;
 
@@ -47,7 +46,7 @@ void shift_register_sixteen_bit_tilde_put_most_significant_bit(t_shift_register_
 
 void shift_register_sixteen_bit_tilde_update_state(t_shift_register_sixteen_bit_tilde * x, t_float f){
   int temp_int = (int) f;
-  int temp_max = pow(2, 16) - 1;
+  int temp_max = x->max_state_value;
   if (temp_int > temp_max){
     x->state = temp_max;
   }
@@ -57,7 +56,6 @@ void shift_register_sixteen_bit_tilde_update_state(t_shift_register_sixteen_bit_
   else{
   x->state = temp_int;
   }
-  post("State: %i", x->state);
 }
 
 t_int * shift_register_sixteen_bit_tilde_perform(t_int * w){
@@ -103,7 +101,6 @@ t_int * shift_register_sixteen_bit_tilde_perform(t_int * w){
     *out15++  = shift_register_sixteen_bit_tilde_get_bit(x, 1);
     *out16++  = shift_register_sixteen_bit_tilde_get_bit(x, 0);
   }
-
   return (w+20);
 }
 
@@ -134,6 +131,7 @@ void * shift_register_sixteen_bit_tilde_new(t_floatarg f1, t_floatarg f2){
   t_shift_register_sixteen_bit_tilde * x = (t_shift_register_sixteen_bit_tilde *) pd_new(shift_register_sixteen_bit_tilde_class);
 
   x->state = 0;
+  x->max_state_value = pow(2, 17)-1;
 
   x->in_state = inlet_new(&x->x_obj, &x->x_obj.ob_pd, &s_float, gensym("in_state"));
 
@@ -158,7 +156,6 @@ void * shift_register_sixteen_bit_tilde_new(t_floatarg f1, t_floatarg f2){
 }
 
 void shift_register_sixteen_bit_tilde_free(t_shift_register_sixteen_bit_tilde * x){
-  inlet_free(x->in_input);
   inlet_free(x->in_state);
   outlet_free(x->out);
   outlet_free(x->out2);
@@ -187,8 +184,6 @@ void shift_register_sixteen_bit_tilde_setup(void){
                              A_DEFFLOAT,
                              0);
 
-  CLASS_MAINSIGNALIN(shift_register_sixteen_bit_tilde_class, t_shift_register_sixteen_bit_tilde, f);
-
   class_addmethod(shift_register_sixteen_bit_tilde_class,
                   (t_method) shift_register_sixteen_bit_tilde_dsp,
                   gensym("dsp"),
@@ -200,4 +195,5 @@ void shift_register_sixteen_bit_tilde_setup(void){
                    A_DEFFLOAT,
                    0);
 
+  CLASS_MAINSIGNALIN(shift_register_sixteen_bit_tilde_class, t_shift_register_sixteen_bit_tilde, f);
 }
