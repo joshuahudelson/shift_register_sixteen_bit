@@ -1,4 +1,4 @@
-#N canvas 102 149 1249 592 10;
+#N canvas 96 157 1249 592 10;
 #X floatatom 265 38 5 0 0 0 - - -, f 5;
 #X obj 293 74 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -70,10 +70,13 @@
 #X obj 422 10 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 157 26 \; pd dsp \$1;
-#X obj 157 6 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 157 6 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 687 158 golomber;
 #X obj 704 406 dac~;
+#X text 728 24 300 ms delay \; 0 \, 2 reg 1 XOR \; 0 \, 8 reg 2 XOR
+\; NOR \; Wheel + 37 ms osc @ 2000hz \; + 18 ms Noise @ 5000 lowp.
+;
 #X connect 0 0 3 1;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
