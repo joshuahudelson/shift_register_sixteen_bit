@@ -1,4 +1,4 @@
-#N canvas 344 166 728 363 10;
+#N canvas 341 170 728 363 10;
 #X obj 234 95 inlet~;
 #X obj 362 95 inlet~;
 #X obj 56 27 inlet;
@@ -15,6 +15,8 @@
 #X obj 56 175 unpack f f f;
 #X msg 76 119 0 1 0;
 #X msg 96 91 0 0 1;
+#X obj 176 26 loadbang;
+#X msg 176 49 0;
 #X connect 0 0 3 0;
 #X connect 0 0 7 0;
 #X connect 0 0 10 0;
@@ -39,3 +41,5 @@
 #X connect 13 2 7 1;
 #X connect 14 0 13 0;
 #X connect 15 0 13 0;
+#X connect 16 0 17 0;
+#X connect 17 0 9 0;
