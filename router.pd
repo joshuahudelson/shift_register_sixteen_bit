@@ -1,4 +1,4 @@
-#N canvas 43 170 1234 586 10;
+#N canvas 64 180 1234 586 10;
 #X obj 768 535 s~ delwrite\$1-r;
 #X obj 56 310 r~ reg\$1-s-1;
 #X obj 539 309 r~ reg\$1-s-2;
