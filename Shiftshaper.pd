@@ -1,7 +1,7 @@
-#N canvas 127 129 1113 618 10;
+#N canvas 121 137 1113 618 10;
 #X obj 67 57 golomber 0 1;
 #X msg 148 447 \; pd dsp \$1;
-#X obj 148 423 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 148 423 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 237 463 s unimetro;
 #X obj 237 409 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
