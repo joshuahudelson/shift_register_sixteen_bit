@@ -1,3 +1,6 @@
-#N canvas 619 252 450 300 10;
-#X obj 102 37 r~ to-calc;
-#X obj 127 189 s~ from-calc;
+#N canvas 613 260 450 300 10;
+#X obj 127 188 s~ from-calc;
+#X obj 21 57 r~ reg1-0-tap1;
+#X obj 141 57 r~ reg1-1-tap1;
+#X obj 261 57 r~ reg1-1-tap1;
+#X connect 3 0 0 0;
