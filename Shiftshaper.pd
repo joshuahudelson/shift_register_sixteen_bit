@@ -1,25 +1,44 @@
-#N canvas 122 132 1113 618 10;
-#X obj 37 57 golomber 0 1;
-#X msg 148 447 \; pd dsp \$1;
-#X obj 148 423 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 116 140 1113 618 10;
+#X msg 43 450 \; pd dsp \$1;
+#X obj 43 426 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 237 463 s unimetro;
-#X obj 237 409 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 132 466 s unimetro;
+#X obj 132 412 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 144 569 dac~;
+#X obj 226 556 dac~;
 #X obj 155 519 r~ dac0-s;
-#X obj 237 435 metro 40;
+#X obj 132 438 metro 40;
 #X text 706 441 Delay = 100 \; Osc 198 ms at 607 freq (or 609 \, or
 less...!) \; 0 \, 5 NOR reg1 \; 0 \, 4 XOR \, reg2 \; XOR.... leads
 to long cresendo with "ripping" sound transition \; Delay = 110 111
 ms at 459 freq \; 0 \, 2 reg1 XOR \; 0 \, 5 reg2 XOR \; XOR \;;
-#X obj 458 417 calculator;
-#X text 545 533 Double: any \; taps \, probably \; then 2 in wheel.
+#X obj 48 511 calculator;
+#X text 894 557 Double: any \; taps \, probably \; then 2 in wheel.
 ;
-#X obj 390 57 golomber 1 2;
 #X obj 743 57 golomber 2 0;
-#X connect 2 0 1 0;
-#X connect 4 0 7 0;
-#X connect 6 0 5 0;
-#X connect 6 0 5 1;
-#X connect 7 0 3 0;
+#X obj 514 512 unpack f f f;
+#X obj 514 588 s topology-0-r;
+#X obj 554 565 s topology-1-r;
+#X obj 595 542 s topology-2-r;
+#X msg 514 420 0 0 0;
+#X msg 525 443 1 1 1;
+#X msg 532 466 2 2 3;
+#X msg 539 489 4 4 5;
+#X obj 225 519 r~ dac1-s;
+#X obj 295 519 r~ dac2-s;
+#X obj 37 57 golomber 0 1;
+#X obj 390 57 golomber 1 2;
+#X connect 1 0 0 0;
+#X connect 3 0 6 0;
+#X connect 5 0 4 0;
+#X connect 6 0 2 0;
+#X connect 11 0 12 0;
+#X connect 11 1 13 0;
+#X connect 11 2 14 0;
+#X connect 15 0 11 0;
+#X connect 16 0 11 0;
+#X connect 17 0 11 0;
+#X connect 18 0 11 0;
+#X connect 19 0 4 0;
+#X connect 19 0 4 1;
+#X connect 20 0 4 1;
