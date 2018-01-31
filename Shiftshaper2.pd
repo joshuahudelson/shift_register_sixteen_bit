@@ -1,0 +1,49 @@
+#N canvas 129 228 1060 417 10;
+#X obj 713 86 Processor;
+#X text 731 84 0 1 X;
+#X obj 211 99 golomber2 0 1;
+#X text 312 84 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
+6 7 8 9;
+#X obj 714 345 s~ reg0-inlet;
+#X obj 281 360 s topology0;
+#X obj 373 360 s topology1;
+#X obj 465 360 s topology2;
+#X obj 281 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 373 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 465 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 230 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 64 326 s reg0-wheel;
+#X floatatom 64 301 5 0 0 0 - - -, f 5;
+#X obj 667 360 dac~;
+#X msg 32 54 \; pd dsp \$1;
+#X obj 32 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 30 221 s~ reg1-inlet;
+#X obj 50 241 s~ reg2-inlet;
+#X obj 50 131 s~ reg0-bypass;
+#X obj 60 151 s~ reg1-bypass;
+#X obj 70 171 s~ reg2-bypass;
+#X obj 211 156 golomber2 1 2;
+#X obj 211 213 golomber2 2 0;
+#X obj 142 37 osc~ 440;
+#X obj 139 70 *~;
+#X obj 227 38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 0 0 4 0;
+#X connect 0 0 14 0;
+#X connect 0 0 14 1;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X connect 11 0 9 0;
+#X connect 11 0 10 0;
+#X connect 13 0 12 0;
+#X connect 16 0 15 0;
+#X connect 24 0 25 0;
+#X connect 25 0 19 0;
+#X connect 26 0 25 1;
