@@ -1,14 +1,14 @@
-#N canvas 43 144 1278 616 10;
+#N canvas 43 148 1278 616 10;
 #X obj 300 388 shift_register_sixteen_bit~;
-#X obj 400 122 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -232576
+#X obj 400 122 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -262144
 -1 -1 5;
 #X text 402 102 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
 6 7 8 9;
 #X obj 400 136 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -262144
 -1 -1 12;
-#X obj 400 150 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -203904
+#X obj 400 150 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -262144
 -1 -1 20;
-#X obj 400 164 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -262144
+#X obj 400 164 hradio 14 1 0 33 empty empty empty 0 -8 0 10 -228856
 -1 -1 29;
 #X obj 204 483 signal_router_sixteen_bit;
 #X obj 680 388 shift_register_sixteen_bit~;
