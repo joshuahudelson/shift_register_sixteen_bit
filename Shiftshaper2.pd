@@ -1,49 +1,58 @@
-#N canvas 129 228 1060 417 10;
-#X obj 713 86 Processor;
-#X text 731 84 0 1 X;
+#N canvas 123 236 1060 504 10;
+#X obj 773 86 Processor;
 #X obj 211 99 golomber2 0 1;
-#X text 312 84 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
-6 7 8 9;
-#X obj 714 345 s~ reg0-inlet;
-#X obj 281 360 s topology0;
-#X obj 373 360 s topology1;
-#X obj 465 360 s topology2;
-#X obj 281 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 334 390 s topology0;
+#X obj 374 370 s topology1;
+#X obj 415 350 s topology2;
+#X obj 36 309 s reg0-wheel;
+#X floatatom 36 284 5 0 0 0 - - -, f 5;
+#X msg 289 38 \; pd dsp \$1;
+#X obj 289 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 373 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 465 339 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 230 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 64 326 s reg0-wheel;
-#X floatatom 64 301 5 0 0 0 - - -, f 5;
-#X obj 667 360 dac~;
-#X msg 32 54 \; pd dsp \$1;
-#X obj 32 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
-;
-#X obj 30 221 s~ reg1-inlet;
-#X obj 50 241 s~ reg2-inlet;
-#X obj 50 131 s~ reg0-bypass;
-#X obj 60 151 s~ reg1-bypass;
-#X obj 70 171 s~ reg2-bypass;
+#X obj 76 62 osc~ 440;
+#X obj 77 189 *~;
+#X text 220 298 OFF;
+#X text 219 338 SINGLE;
+#X text 220 319 BYPASS;
+#X text 221 358 BYPASS DELAY;
+#X obj 334 327 unpack f f f;
+#X msg 334 284 0 0 0;
+#X msg 339 303 2 2 2;
+#X msg 388 283 1 1 0;
+#X msg 388 303 3 3 0;
+#X obj 115 128 del 10;
+#X obj 115 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 115 107 t b b;
+#X msg 95 156 0;
+#X msg 127 156 1;
+#X obj 28 230 throw~ reg0-inlet;
+#X obj 581 40 dac~;
 #X obj 211 156 golomber2 1 2;
 #X obj 211 213 golomber2 2 0;
-#X obj 142 37 osc~ 440;
-#X obj 139 70 *~;
-#X obj 227 38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X connect 0 0 4 0;
-#X connect 0 0 14 0;
-#X connect 0 0 14 1;
-#X connect 8 0 5 0;
-#X connect 9 0 6 0;
-#X connect 10 0 7 0;
-#X connect 11 0 8 0;
-#X connect 11 0 9 0;
-#X connect 11 0 10 0;
-#X connect 13 0 12 0;
+#X obj 570 7 r~ reg2-tap3;
+#X obj 714 345 throw~ reg0-inlet;
+#X obj 638 364 dac~;
+#X text 528 79 |;
+#X text 417 79 |;
+#X text 640 79 |;
+#X connect 0 0 30 0;
+#X connect 0 0 31 0;
+#X connect 0 0 31 1;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 25 0;
+#X connect 15 0 2 0;
+#X connect 15 1 3 0;
+#X connect 15 2 4 0;
 #X connect 16 0 15 0;
-#X connect 24 0 25 0;
-#X connect 25 0 19 0;
-#X connect 26 0 25 1;
+#X connect 17 0 15 0;
+#X connect 18 0 15 0;
+#X connect 19 0 15 0;
+#X connect 20 0 23 0;
+#X connect 21 0 22 0;
+#X connect 22 0 20 0;
+#X connect 22 1 24 0;
+#X connect 23 0 10 1;
+#X connect 24 0 10 1;
