@@ -1,4 +1,4 @@
-#N canvas 43 116 1296 652 10;
+#N canvas 43 92 1296 652 10;
 #X obj 296 358 *~;
 #X obj 353 358 *~;
 #X obj 412 358 *~;
@@ -28,23 +28,23 @@
 #X obj 36 37 sel 0 1 2 3 4 5 6 7 8 9 10 11;
 #X obj 993 33 sel 0 1 2 3 4 5 6 7 8 9 10 11;
 #X obj 531 553 bitwiser;
-#X obj 297 218 r~ reg0-tap0;
-#X obj 354 238 r~ reg0-tap1;
-#X obj 411 258 r~ reg0-tap2;
-#X obj 468 278 r~ reg0-tap3;
-#X obj 525 218 r~ reg1-tap0;
-#X obj 582 238 r~ reg1-tap1;
-#X obj 639 257 r~ reg1-tap2;
-#X obj 696 278 r~ reg1-tap3;
-#X obj 753 218 r~ reg2-tap0;
-#X obj 810 238 r~ reg2-tap1;
-#X obj 867 258 r~ reg2-tap2;
-#X obj 924 278 r~ reg2-tap3;
-#X obj 536 40 vradio 14 1 0 12 empty empty empty 0 -8 0 10 -228856
+#X obj 297 258 r~ reg0-tap0;
+#X obj 354 278 r~ reg0-tap1;
+#X obj 411 298 r~ reg0-tap2;
+#X obj 468 318 r~ reg0-tap3;
+#X obj 525 258 r~ reg1-tap0;
+#X obj 582 278 r~ reg1-tap1;
+#X obj 639 297 r~ reg1-tap2;
+#X obj 696 318 r~ reg1-tap3;
+#X obj 753 258 r~ reg2-tap0;
+#X obj 810 278 r~ reg2-tap1;
+#X obj 867 298 r~ reg2-tap2;
+#X obj 924 318 r~ reg2-tap3;
+#X obj 536 25 vradio 14 1 0 15 empty empty empty 0 -8 0 10 -228856
 -1 -1 0;
-#X obj 550 40 vradio 14 1 0 12 empty empty empty 0 -8 0 10 -262144
+#X obj 550 25 vradio 14 1 0 15 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
-#X obj 536 26 tgl 14 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
+#X obj 536 11 tgl 14 0 empty empty empty 17 7 0 10 -262130 -1 -1 0
 1;
 #X obj 530 585 s~ signal_router\$1-outlet;
 #X obj 403 22 loadbang;
@@ -201,4 +201,4 @@
 #X connect 68 0 25 0;
 #X connect 69 0 25 0;
 #X connect 70 0 25 0;
-#X coords 0 -1 1 1 28 182 2 536 26;
+#X coords 0 -1 1 1 28 225 2 536 10;
