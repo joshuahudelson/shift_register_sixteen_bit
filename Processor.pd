@@ -1,9 +1,4 @@
-#N canvas 729 186 634 474 10;
-#X obj 159 101 signal_router 0;
-#X obj 217 101 signal_router 2;
-#X obj 188 101 signal_router 1;
-#X obj 246 101 signal_router 3;
-#X obj 100 284 signal_router4;
-#X obj 100 405 outlet~;
-#X connect 4 0 5 0;
-#X coords 0 -1 1 1 174 242 2 100 100;
+#N canvas 711 210 634 474 10;
+#X obj 100 100 signal_router 0;
+#X obj 128 100 signal_router 1;
+#X coords 0 -1 1 1 56 182 2 100 100;
